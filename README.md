@@ -22,24 +22,3 @@ L'architettura è modulare ed è divisa in 4 agenti specializzati:
 4. 📤 **Il Postino (`notifier.py`)**: Invia il file `.mp3` generato direttamente al tuo smartphone tramite un **Bot Telegram**.
 
 Tutto questo viene orchestrato da `main.py` ed eseguito automaticamente ogni mattina alle 08:00 tramite **GitHub Actions**.
-
----
-
-## 🛠️ Stack Tecnologico
-
-* **LLM Core:** Google Gemini 1.5 Pro (`google-genai` SDK)
-* **Search Engine:** Perplexity API (`openai` SDK interface)
-* **Text-to-Speech:** `edge-tts` (Cost-optimized: 100% Free)
-* **Delivery:** Telegram Bot API
-* **Infrastruttura:** GitHub Actions (CI/CD cron jobs)
-
----
-
-## 💻 Installazione Locale
-
-Vuoi far girare l'agente sul tuo PC? Ecco come fare:
-
-**1. Clona la repository**
-```bash
-git clone [https://github.com/IL_TUO_USERNAME/DeepBrief-AI.git](https://github.com/IL_TUO_USERNAME/DeepBrief-AI.git)
-cd DeepBrief-AI

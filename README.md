@@ -1,7 +1,7 @@
 # 🎙️ DeepBrief AI 
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![Gemini 1.5 Pro](https://img.shields.io/badge/Gemini-1.5_Pro-orange.svg)
+![Gemini 2.5 Pro](https://img.shields.io/badge/Gemini-2.5_Pro-orange.svg)
 ![Perplexity](https://img.shields.io/badge/Perplexity-Sonar_Pro-black.svg)
 ![Automation](https://img.shields.io/badge/GitHub_Actions-Automated-success.svg)
 

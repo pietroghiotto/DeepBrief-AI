@@ -7,7 +7,7 @@
 
 **DeepBrief AI** è un agente autonomo che ogni mattina ricerca, scrive, doppia e ti invia su Telegram un podcast di 20 minuti sulle notizie più importanti del mondo dell'Intelligenza Artificiale e della Macroeconomia.
 
-Niente spam, niente scrolling infinito: solo un riassunto vocale di alta qualità pronto per il tuo tragitto casa-lavoro.
+Niente spam, niente scrolling infinito: solo un riassunto vocale pronto per il tragitto casa-lavoro.
 
 ---
 

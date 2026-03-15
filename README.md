@@ -16,7 +16,7 @@ Niente spam, niente scrolling infinito: solo un riassunto vocale di alta qualit�
 L'architettura è modulare ed è divisa in 4 agenti specializzati:
 
 1. 🔍 **Il Ricercatore (`researcher.py`)**: Interroga l'API di **Perplexity (Sonar-Pro)** per estrarre le 10 notizie più rilevanti delle ultime 24 ore, verificando le fonti e strutturando i dati in JSON.
-2. ✍️ **Lo Sceneggiatore (`writer.py`)**: Sfrutta la context window di **Gemini 1.5 Pro** per generare uno script coeso di ~3000 parole usando la tecnica *Outline-to-Expansion*. Il tono è quello di un "Informed Colleague".
+2. ✍️ **Lo Sceneggiatore (`writer.py`)**: Sfrutta la context window di **Gemini 2.5 Pro** per generare uno script coeso di ~3000 parole usando la tecnica *Outline-to-Expansion*. Il tono è quello di un "Informed Colleague".
 3. 🗣️ **Il Doppiatore (`audio_gen.py`)**: Utilizza `edge-tts` (voci neurali Microsoft) per sintetizzare l'audio in italiano con intonazioni umane e pause realistiche.
 4. 📤 **Il Postino (`notifier.py`)**: Invia il file `.mp3` generato direttamente al tuo smartphone tramite un **Bot Telegram**.
 

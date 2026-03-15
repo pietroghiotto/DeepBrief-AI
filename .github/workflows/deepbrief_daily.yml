@@ -1,0 +1,55 @@
+name: DeepBrief AI Daily Podcast
+
+on:
+  # Esegui manualmente tramite il pulsante su GitHub
+  workflow_dispatch: 
+  
+  # Esegui automaticamente ogni giorno alle 08:00 (ora italiana)
+  # Nota: l'ora dei server di GitHub è UTC, quindi le 07:00 UTC sono le 08:00 in Italia.
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # FONDAMENTALE: Installa ffmpeg (serve a pydub e edge-tts per gestire i file audio)
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Installa le dipendenze Python
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Crea il file config.yaml iniettando in modo sicuro le chiavi dai Secrets
+      - name: Crea config.yaml
+        run: |
+          cat << EOF > config.yaml
+          api_keys:
+            perplexity: "${{ secrets.PERPLEXITY_API_KEY }}"
+            gemini: "${{ secrets.GEMINI_API_KEY }}"
+            telegram_bot_token: "${{ secrets.TELEGRAM_BOT_TOKEN }}"
+            telegram_chat_id: "${{ secrets.TELEGRAM_CHAT_ID }}"
+          podcast:
+            language: "it-IT"
+            voice: "it-IT-GiuseppeNeural"
+            duration_minutes: 20
+            target_word_count: 3000
+          researcher:
+            model: "sonar-pro"
+            news_count_ai: 3
+            news_count_econ: 3
+          EOF
+
+      - name: Esegui DeepBrief AI
+        run: python main.py

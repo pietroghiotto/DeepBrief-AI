@@ -1,5 +1,6 @@
 import requests
 import os
+import yaml
 
 class TelegramNotifier:
     def __init__(self, config_path="config.yaml"):

@@ -19,7 +19,7 @@ class DeepBriefAudio:
     async def generate_segment(self, text, index):
         """Genera un singolo file MP3 per un paragrafo."""
         output_path = f"{self.output_dir}/seg_{index:03d}.mp3"
-        communicate = edge_tts.Communicate(text, self.voice, rate="+0%") # rate può essere +5% se vuoi più ritmo
+        communicate = edge_tts.Communicate(text, self.voice, rate="+5%") # più alto se vuoi più ritmo
         await communicate.save(output_path)
         return output_path
 

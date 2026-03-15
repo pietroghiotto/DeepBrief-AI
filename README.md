@@ -11,7 +11,7 @@ Niente spam, niente scrolling infinito: solo un riassunto vocale pronto per il t
 
 ---
 
-## 🚀 Come funziona (La Pipeline)
+## 🚀 La Pipeline
 
 L'architettura è modulare ed è divisa in 4 agenti specializzati:
 

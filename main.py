@@ -1,6 +1,7 @@
 # main.py
 import asyncio
 import requests
+from datetime import datetime
 from researcher import DeepBriefResearcher
 from writer import DeepBriefWriter
 from audio_gen import DeepBriefAudio
@@ -8,6 +9,9 @@ from notifier import TelegramNotifier
 
 async def run_deepbrief_pipeline():
     print("--- 🚀 AVVIO DEEPBRIEF AI ---")
+    
+    date = datetime.now().strftime("%Y-%m-%d")
+    nome_podcast = f"DeepBrief {date}.mp3"
     
     # 1. Ricerca
     researcher = DeepBriefResearcher()
@@ -18,16 +22,16 @@ async def run_deepbrief_pipeline():
 
     # 2. Scrittura Script
     writer = DeepBriefWriter()
-    script = writer.write_full_podcast(news_data) # <--- Deve essere questo nome
+    script = writer.write_full_podcast(news_data)
     writer.save_script(script)
 
     # 3. Generazione Audio
     audio_gen = DeepBriefAudio()
-    await audio_gen.process_script()
+    await audio_gen.process_script(output_name=nome_podcast)
 
     # 4. Notifica Telegram
-    notifier = TelegramNotifier(config)
-    notifier.send_audio(audio_file)
+    notifier = TelegramNotifier() 
+    notifier.send_audio(nome_podcast)
 
     print("--- ✨ PODCAST GENERATO CON SUCCESSO ---")
 

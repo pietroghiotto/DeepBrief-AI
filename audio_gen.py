@@ -28,7 +28,7 @@ class DeepBriefAudio:
         paragraphs = [p.strip() for p in script.split("\n\n") if p.strip()]
         return paragraphs
 
-    async def process_script(self, script_path="podcast_script.txt"):
+    async def process_script(self, script_path="podcast_script.txt", output_name="deepbrief_final.mp3"):
         """Legge lo script, genera i segmenti e li unisce."""
         if not os.path.exists(script_path):
             print(f"❌ Errore: File {script_path} non trovato.")
@@ -46,7 +46,7 @@ class DeepBriefAudio:
             path = await self.generate_segment(p, i)
             audio_files.append(path)
 
-        self.merge_audio(audio_files)
+        self.merge_audio(audio_files, output_name=output_name)
 
     def merge_audio(self, files, output_name="deepbrief_final.mp3"):
         """Unisce tutti i segmenti MP3 in un unico file con silenzi naturali."""

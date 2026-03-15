@@ -2,11 +2,15 @@ import requests
 import os
 
 class TelegramNotifier:
-    def __init__(self, config = "config.yaml"):
-        # Prova a prendere le chiavi dalle variabili d'ambiente (per GitHub Actions)
-        # Se non esistono, le prende dal config.yaml (per uso locale)
-        self.token = os.getenv('TELEGRAM_BOT_TOKEN') or config['api_keys']['telegram_bot_token']
-        self.chat_id = os.getenv('TELEGRAM_CHAT_ID') or config['api_keys']['telegram_chat_id']
+    def __init__(self, config_path="config.yaml"):
+        config_data = {'api_keys': {}} 
+        
+        if os.path.exists(config_path):
+            with open(config_path, "r") as f:
+                config_data = yaml.safe_load(f)
+                
+        self.token = os.getenv('TELEGRAM_BOT_TOKEN') or config_data['api_keys'].get('telegram_bot_token')
+        self.chat_id = os.getenv('TELEGRAM_CHAT_ID') or config_data['api_keys'].get('telegram_chat_id')
 
     def send_audio(self, file_path, caption="🎙️ Nuovo episodio di DeepBrief AI pronto!"):
         if not self.token or not self.chat_id:

@@ -4,7 +4,6 @@
 ![Gemini 1.5 Pro](https://img.shields.io/badge/Gemini-1.5_Pro-orange.svg)
 ![Perplexity](https://img.shields.io/badge/Perplexity-Sonar_Pro-black.svg)
 ![Automation](https://img.shields.io/badge/GitHub_Actions-Automated-success.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 **DeepBrief AI** è un agente autonomo che ogni mattina ricerca, scrive, doppia e ti invia su Telegram un podcast di 20 minuti sulle notizie più importanti del mondo dell'Intelligenza Artificiale e della Macroeconomia.
 
